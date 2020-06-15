@@ -1,3 +1,185 @@
-.wrapper{
-  background: red;
+._nc .stage1 .slider {
+  left: 0;
+  right: 0;
+  height: 48px;
+  border-radius: 4px;
+  background: #E8E8E8;
+  box-shadow: none;
+}
+
+._nc .stage1 .button {
+  width: 48px;
+  border-radius: 6px;
+  border-left: 5px solid #E8E8E8;
+  height: 48px;
+  border-top: 5px solid #E8E8E8;
+  border-bottom: 5px solid #E8E8E8;
+}
+
+
+._nc .icon-slide-arrow,
+._nc .icon-close,
+._nc .icon-load-c,
+._nc .icon-ok {
+  font-size: 20px;
+}
+
+._nc .stage1 .bg-green {
+  background-color: #2CB989;
+  border-radius: 6px;
+}
+
+._nc .icon-slide-arrow {
+  color: #9EA1B0;
+}
+
+._nc .icon-ok {
+  color: #2CB989;
+}
+
+@media only screen and (-webkit-device-pixel-ratio: 2) and (max-device-height: 568px) and (min-device-width: 320px) {
+  ._nc .stage1 .icon {
+    bottom: 0px;
+  }
+}
+
+._nc .stage1 .icon {
+  left: 50%;
+  margin-left: -9px;
+  width: 18px;
+  height: 18px;
+}
+
+._nc .stage1 .track div,
+._nc .stage1 .label {
+  line-height: 48px;
+  height: 48px;
+  font-size: 14px;
+}
+
+._nc .stage2 .btn-ok,
+._nc .stage2 .tips {
+  background-color: #4E7CDD;
+  height: 35px;
+  font-size: 14px;
+}
+
+.nc-h5-overlay {
+  font-size: 14px;
+}
+
+.icon-message {
+  display: none;
+}
+
+._nc .stage2 .textbox {
+  height: 40px;
+}
+
+._nc .stage2 .icon {
+  top: 5px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+}
+
+._nc .stage2 .textbox .placeholder {
+  font-size: 14px;
+  left: 10px;
+  top: 10px;
+}
+
+/*重写样式*/
+
+._nc.nc-h5-overlay {
+  width: 100%;
+  height: 158px;
+  background: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+._nc.nc-h5-overlay .info {
+  font-size: 12px;
+  color: #F24C3D;
+  padding: 0 0 12px 0 !important;
+  overflow: hidden;
+}
+
+.nc-h5-overlay div.info i.nc-iconfont {
+  display: block;
+  float: left;
+}
+
+._nc.nc-h5-overlay .info span {
+  display: block;
+  float: left;
+  word-wrap: break-word;
+  width: 90%;
+}
+
+._nc .stage2 .textbox {
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+._nc .stage2 .textbox .input {
+  width: 54%;
+  height: 40px;
+  float: left;
+  position: relative;
+  border-radius: 0 !important;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  padding-right: 25px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #E9E9E9 !important;
+}
+
+._nc .stage2 .icon.clear {
+  left: 102px;
+}
+
+._nc.nc-h5-overlay .stage2.stage div.ope {
+  padding: 0 !important;
+}
+
+._nc .stage2 .btn-ok {
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+}
+
+._nc .stage2 .textbox .code {
+  border: 1px solid #E9E9E9;
+  float: left;
+  height: 38px;
+  width: 73px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+._nc .stage2 .icon.refresh {
+  position: relative;
+  top: 5px;
+  left: 0;
+  float: right;
+}
+
+._nc .stage3 .title {
+  font-size: 14px;
+  background: #fff;
+  margin: 0;
+}
+
+._nc .stage3 .menu .icon {
+  font-size: 20px;
+}
+
+._nc .stage2 .tips {
+  position: absolute;
+  top: 0;
+  line-height: 37px;
 }
