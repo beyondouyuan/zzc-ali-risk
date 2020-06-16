@@ -49,17 +49,8 @@ export default class AliRiskCheck extends Component {
         script.id = 'script';
         // script.async = true;
         head.appendChild(script);
-        if (script.onload) {
-            script.onload = () => {
-                cb && cb();
-            }
-        } else {
-            // ie6, ie7不支持onload的情况
-            script.onreadystatechange = function () {
-                if (script.readyState == 'loaded' || script.readyState == 'complete') {
-                    cb && cb();
-                }
-            }
+        script.onload = script.onreadystatechange = function() {
+            cb && cb();
         }
     }
 
