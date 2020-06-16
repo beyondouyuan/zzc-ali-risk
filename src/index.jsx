@@ -49,13 +49,14 @@ export default class AliRiskCheck extends Component {
         script.id = 'script';
         // script.async = true;
         head.appendChild(script);
-        script.onload = script.onreadystatechange = function() {
+        script.onload = script.onreadystatechange = function () {
             cb && cb();
         }
     }
 
     init = () => {
         this.initNoCaptcha();
+        this.fetchRiskToken();
     }
 
     initNoCaptcha = () => {
@@ -123,16 +124,18 @@ export default class AliRiskCheck extends Component {
             riskToken
         } = this.riskCheckParams;
 
-
         try {
             if (!riskToken) {
                 await this.fetchRiskToken();
+                setTimeout(() => {
+                    this.nc.reset(); // 重置滑动验证
+                }, 600)
             }
 
             const parmas = {
                 csessionid: aliCsessionid,
-                sig,
-                token,
+                sig: sig,
+                token: token,
                 risktoken: riskToken,
                 scene: 1
             };
@@ -143,7 +146,7 @@ export default class AliRiskCheck extends Component {
             if (code === 1) {
                 const checkResult = await mineService.checkRisk({
                     csessionid: data.csessionid,
-                    riskToken
+                    riskToken: riskToken
                 })
                 if (checkResult.code === 0) {
                     if (isFunction(this.props.onSuccess)) {
