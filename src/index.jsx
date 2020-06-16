@@ -40,6 +40,7 @@ export default class AliRiskCheck extends Component {
     injectScript = (cb) => {
         let script = document.querySelector('#script');
         if (script) {
+            cb && cb();
             return;
         }
         const head = document.getElementsByTagName('head')[0];
@@ -48,9 +49,18 @@ export default class AliRiskCheck extends Component {
         script.id = 'script';
         // script.async = true;
         head.appendChild(script);
-        setTimeout(() => {
-            cb && cb();
-        }, 1000)
+        if (script.onload) {
+            script.onload = () => {
+                cb && cb();
+            }
+        } else {
+            // ie6, ie7不支持onload的情况
+            script.onreadystatechange = function () {
+                if (script.readyState == 'loaded' || script.readyState == 'complete') {
+                    cb && cb();
+                }
+            }
+        }
     }
 
     init = () => {

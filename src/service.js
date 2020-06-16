@@ -1,7 +1,5 @@
-const ZIJIA_API_PREFIX_DEV = 'http://api-crc.test.zuzuche.net';
-const ZIJIA_API_PREFIX_PRO = 'https://api-crc.int.zuzuche.com:5200';
-const ZZC_ACOUNT_API_PREFIX_DEV = 'http://account-m-branx-mkdev.devx.zuzuche.net';
-const ZZC_ACOUNT_API_PREFIX_PRO = 'https://account-m.zuzuche.com';
+const ZIJIA_API_PREFIX_DEV = 'https://m-crc-nodejs-test.zuzuche.net/zijia/api';
+const ZIJIA_API_PREFIX_PRO = 'https://m.zuzuche.com/zijia/api';
 
 function getTopDomain() {
     const regResult = /.([A-Za-z]+)$/gi.exec(location.hostname);
@@ -11,7 +9,6 @@ function getTopDomain() {
 
 const topDomain = getTopDomain();
 const ZIJIA_API_PREFIX = (topDomain && topDomain === 'com') ? ZIJIA_API_PREFIX_PRO : ZIJIA_API_PREFIX_DEV; // php api域名
-const ZZC_ACOUNT_API_PREFIX = (topDomain && topDomain === 'com') ? ZZC_ACOUNT_API_PREFIX_PRO : ZZC_ACOUNT_API_PREFIX_DEV; // 阿里云api域名
 
 
 
@@ -88,7 +85,7 @@ export async function getRiskToken(data) {
     const result = await ajaxRequest({
         method: 'POST',
         dataType: 'JSON',
-        url: `${ZIJIA_API_PREFIX}/activity/cut-price/getRiskToken`,
+        url: `${ZIJIA_API_PREFIX}/mine/getRiskToken`,
         data: data
     })
     return result;
@@ -96,9 +93,9 @@ export async function getRiskToken(data) {
 
 export async function checkRisk(data) {
     const result = await ajaxRequest({
-        method: 'GET',
+        method: 'POST',
         dataType: 'JSON',
-        url: `${ZIJIA_API_PREFIX}/frontend/coupon/checkRisk`,
+        url: `${ZIJIA_API_PREFIX}/mine/checkRisk`,
         data: data
     })
     return result;
@@ -108,7 +105,7 @@ export async function getAliSlide(data) {
     const result = await ajaxRequest({
         method: 'POST',
         dataType: 'JSON',
-        url: `${ZZC_ACOUNT_API_PREFIX}/riskCheck/aliSlide`,
+        url: `${ZIJIA_API_PREFIX}/mine/getAliSlide`,
         data: data
     })
     return result;
